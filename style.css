@@ -83,23 +83,116 @@ body {
   z-index: 10;
 }
 
-/* BOTÕES */
-.nav {
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(239, 55, 30, 0.6);
-  color: #fff;
-  font-size: 20px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
-  transition: 0.3s;
-  margin-top: -120px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.nav:hover {
-  background: rgba(239, 55, 30, 0.45);
+body {
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+  width: 100%;
+  max-width: 420px;
+  padding: 16px;
+}
+
+/* TOPO SPOTIFY */
+.spotify {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.spotify iframe {
+  width: 100%;
+  max-width: 360px;
+  height: 85px;
+  border-radius: 12px;
+  border: none;
+
+  box-shadow:
+    0 0 0px #ef361e00,
+    0 0 10px #ef361e00,
+    inset 0 0 5px #ef361e00;
+}
+
+/* ÁREA A4 */
+.a4 {
+  width: 100%;
+  aspect-ratio: 210 / 297;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+
+  /* Borda com brilho vermelho */
+  box-shadow:
+    0 0 10px #ef371e,
+    0 0 20px #ef371e,
+    inset 0 0 10px #ef371e;
+}
+
+/* SLIDER */
+.slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* CONTAINER DOS BOTÕES */
+.nav-container {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 18px;
+  z-index: 10;
+}
+
+/* SLIDER - ARRASTAR */
+.slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* esconder scrollbar */
+.slider::-webkit-scrollbar {
+  display: none;
 }
 
 /* TEXTO */
@@ -138,4 +231,44 @@ body {
   background: #ef371e;
   color: #000;
 }
+
+
+
+/* TEXTO */
+.texto {
+  margin-top: 70px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.texto h4 {
+  font-size: 12px;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+/* PRESENTE */
+.Presente {
+  text-align: center;
+}
+
+.Presente a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  border: 1px solid #ef371e;
+  padding: 8px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.Presente a:hover {
+  background: #ef371e;
+  color: #000;
+}
+
 
