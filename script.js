@@ -1,22 +1,22 @@
 const slider = document.querySelector(".slider");
 const slides = document.querySelectorAll(".slide");
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
+const dots = document.querySelectorAll(".dot");
 
-let index = 0;
+// Atualiza bolinha ao arrastar
+slider.addEventListener("scroll", () => {
+  const slideWidth = slider.offsetWidth;
+  const index = Math.round(slider.scrollLeft / slideWidth);
 
-function atualizarSlider() {
-  slider.style.transform = `translateX(-${index * 100}%)`;
-}
-
-next.addEventListener("click", () => {
-  index++;
-  if (index >= slides.length) index = 0;
-  atualizarSlider();
+  dots.forEach(dot => dot.classList.remove("active"));
+  if (dots[index]) dots[index].classList.add("active");
 });
 
-prev.addEventListener("click", () => {
-  index--;
-  if (index < 0) index = slides.length - 1;
-  atualizarSlider();
+// Clicar na bolinha muda o slide
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => {
+    slider.scrollTo({
+      left: slider.offsetWidth * i,
+      behavior: "smooth"
+    });
+  });
 });
